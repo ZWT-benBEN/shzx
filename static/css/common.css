@@ -2006,12 +2006,14 @@ p {
   background: #1bb5ec;
 }
 
-.picker-calendar-day[disabled] {
-  color: #b8b8b8;
+.icon-accordOpen {
+  margin-left: 5px;
 }
 
-.picker-calendar-row[disabled] .picker-calendar-day {
-  color: #b8b8b8 !important;
+.navbar .yeariconin.revenMouthcon {
+  width: 25px;
+  height: 22px;
+  background-size: cover;
 }
 
 .revMtable .revMinner {

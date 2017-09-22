@@ -1684,16 +1684,16 @@ p{
 .picker-calendar-day.picker-calendar-day-selected span {
   background: $theBlue;
 }
-.picker-calendar-day[disabled] {
-  color: #b8b8b8;
-}
-.picker-calendar-row[disabled] {
-  .picker-calendar-day {
-    color: #b8b8b8 !important;
-  }
-}
 
 // 租金报表
+.icon-accordOpen {
+  margin-left: 5px;
+}
+.navbar .yeariconin.revenMouthcon {
+  width: 25px;
+  height: 22px;
+  background-size:  cover;
+}
 .revMtable {
   .revMinner {
     width: 100%;

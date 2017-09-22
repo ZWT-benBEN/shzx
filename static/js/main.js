@@ -696,12 +696,13 @@ $$(document).on('pageInit', '.page[data-page="revenueDaylist"]', function(e) {
     ];
     myApp.actions(target, buttons);
   }); 
-
+  var today = new Date();
   var  monthNames  = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
    var  monthNamess  = ['01','02','03','04','05','06','07','08','09','10','11','12'];
   var calendarDefault = myApp.calendar({
     input: '#calenderPut',
     touchmove: false,
+    maxDate: today,
     monthNamesShort: ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
     dayNames: ['周日','周一','周二','周三','周四','周五','周六'],
     dayNamesShort: ['周日','周一','周二','周三','周四','周五','周六'],
@@ -713,22 +714,6 @@ $$(document).on('pageInit', '.page[data-page="revenueDaylist"]', function(e) {
             '</div>' +
         '</div>',
     onOpen: function (p) {
-      var thismouth = $$('.picker-calendar-month-current');
-      var thiscalender = thismouth.find('.picker-calendar-day');
-      // console.log(thiscalender.length)
-      var thisToday = thismouth.find('.picker-calendar-day.picker-calendar-day-today');
-      // console.log(thisToday.index())
-      for(var i=0; i<thiscalender.length; i++) {
-        if($$(thiscalender[i]).find('span').text() == $$(thisToday).find('span').text()) {
-          $$(thiscalender[i]).nextAll().attr('disabled',true);
-          $$(thiscalender[i]).parent().nextAll().attr('disabled',true);
-        }
-      }
-      // var todaynum = $$('.picker-calendar-day-today').find('span').text();
-      // if(todaynum === '14') {
-        // $$('.picker-calendar-day-today').nextAll().eq(0).attr('disabled',true);
-        // $$('.picker-calendar-day-today').nextAll().eq(1).attr('disabled',true);
-      // }
       $$('.calendar-custom-toolbar .center .mouth').text(monthNames[p.currentMonth]);
       $$('.calendar-custom-toolbar .center .year').text(p.currentYear);
       $$('.calendar-custom-toolbar .mouth ').on('click', function() {
@@ -782,8 +767,9 @@ $$(document).on('pageInit', '.page[data-page="revenueDaylist"]', function(e) {
 // 月报表
 $$(document).on('pageInit', '.page[data-page="revenueMouthlist"]', function(e) {
   var today = new Date();
+  var todayYear = today.getFullYear();
   // 日，月，年
-  $$('.revendaycon').on('click', function (e) {
+  $$('.sliding').on('click', function (e) {
     var target = this;
     var buttons = [
         {  
@@ -806,7 +792,7 @@ $$(document).on('pageInit', '.page[data-page="revenueMouthlist"]', function(e) {
    showClose($$(this));
   })
   var pickerInline = myApp.picker({
-    input: '#pickerPut',
+    input: '.revenMouthcon',
     toolbarTemplate: 
       '<div class="toolbar">' +
         '<div class="toolbar-inner">' +
@@ -827,7 +813,7 @@ $$(document).on('pageInit', '.page[data-page="revenueMouthlist"]', function(e) {
         {
             values: (function () {
                 var arr = [];
-                for (var i = 1950; i <= 2030; i++) { arr.push(i); }
+                for (var i = 1950; i <= todayYear; i++) { arr.push(i); }
                 return arr;
             })(),
             textAlign: 'left'
