@@ -2006,6 +2006,14 @@ p {
   background: #1bb5ec;
 }
 
+.picker-calendar-day[disabled] {
+  color: #b8b8b8;
+}
+
+.picker-calendar-row[disabled] .picker-calendar-day {
+  color: #b8b8b8 !important;
+}
+
 .revMtable .revMinner {
   width: 100%;
   height: 12.8rem;
@@ -2048,7 +2056,7 @@ p {
 }
 
 .revTable .theadtr .thfirst {
-  width: 25% !important;
+  width: 22% !important;
 }
 
 .revTable .theadtr th {
@@ -2061,6 +2069,7 @@ p {
   height: 100%;
   background-color: #f2f4f7;
   text-align: center;
+  color: #1e1e1e;
 }
 
 .revTable .tbodytr td {

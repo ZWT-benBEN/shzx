@@ -1684,6 +1684,14 @@ p{
 .picker-calendar-day.picker-calendar-day-selected span {
   background: $theBlue;
 }
+.picker-calendar-day[disabled] {
+  color: #b8b8b8;
+}
+.picker-calendar-row[disabled] {
+  .picker-calendar-day {
+    color: #b8b8b8 !important;
+  }
+}
 
 // 租金报表
 .revMtable {
@@ -1720,7 +1728,7 @@ p{
     height: .65rem;
     line-height: .65rem;
     .thfirst {
-      width: 25% !important;
+      width: 22% !important;
     }
     th {
       width: 25% !important;
@@ -1730,6 +1738,7 @@ p{
         height: 100%;
         background-color: $graybase;
         text-align: center;
+        color: #1e1e1e;
       }
     }
   }
